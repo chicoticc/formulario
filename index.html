@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>formulario</title>
     <link rel="stylesheet" href="stile.css">
+    <script src="/js/script.js" defer></script>
 </head>
 <body>
-    <h1>registro de usuario</h1>
-    <p>Por favor, ingrese sus datos para registrarse</p>
     <div id="formulario">
+    <h1>registro de usuario</h1>
     <form>
         <label for="nombre">Nombre completo</label>
         <input type="text" name="nombre" id="nombre" required>
@@ -25,6 +25,7 @@
         <br>
         <label for="rol">selecciona tu rol</label>
         <select name="rol" id="rol" required>
+            <option value="ninguno">Ninguno</option>
             <option value="miembro">miembro del equipo</option>
             <option value="lider">lider del proyecto</option>
             <option value="observador">observador</option>
@@ -36,13 +37,5 @@
     </form>
     </div>
     <p id="rolSeleccionado">Rol seleccionado: Ninguno</p>
-    <script>
-        const selectRol = document.getElementById('rol');
-        const RolSeleccionado = document.getElementById('rolSeleccionado');
-        selectRol.addEventListener('change', () => {
-            const rol = selectRol.options[selectRol.selectedIndex].text;
-            RolSeleccionado.textContent = `Rol seleccionado: ${rol}`;
-        });
-    </script>
 </body>
 </html>
