@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulario</title>
+    <link rel="stylesheet" href="stile.css">
+</head>
+<body>
+    <h1>registro de usuario</h1>
+    <p>Por favor, ingrese sus datos para registrarse</p>
+    <div id="formulario">
+    <form>
+        <label for="nombre">Nombre completo</label>
+        <input type="text" name="nombre" id="nombre" required>
+        <br>
+        <label for="Correo">Correo electronico</label>
+        <input type="email" name="Correo" id="Correo" required>
+        <br>
+        <label for="contraseña">Contraseña</label>
+        <input type="password" name="contraseña" id="contraseña" required minlength="8" maxlength="16" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]+" title="La contraseña debe tener al menos una letra mayúscula, una letra minúscula y un número">
+        <br>
+        <label for="contraseña2">Repetir contraseña</label>
+        <input type="password" name="contraseña2" id="contraseña2" required minlength="8" maxlength="16" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]+" title="La contraseña debe tener al menos una letra mayúscula, una letra minúscula y un número">
+        <br>
+        <label for="rol">selecciona tu rol</label>
+        <select name="rol" id="rol" required>
+            <option value="miembro">miembro del equipo</option>
+            <option value="lider">lider del proyecto</option>
+            <option value="observador">observador</option>
+        </select>
+        <br>
+        <button type="submit">Registrarse</button>
+        <button type="reset">Limpiar</button>
+        <button type="button">Cancelar</button>
+    </form>
+    </div>
+    <p id="rolSeleccionado">Rol seleccionado: Ninguno</p>
+    <script>
+        const selectRol = document.getElementById('rol');
+        const RolSeleccionado = document.getElementById('rolSeleccionado');
+        selectRol.addEventListener('change', () => {
+            const rol = selectRol.options[selectRol.selectedIndex].text;
+            RolSeleccionado.textContent = `Rol seleccionado: ${rol}`;
+        });
+    </script>
+</body>
+</html>
